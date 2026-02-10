@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalingiwo | Digitalisasi Padukuhan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MODAL KATALOG -->
+<div
+  id="modalKatalog"
+  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[9999]"
+>
+  <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative shadow-2xl">
+    <button
+      onclick="closeKatalog()"
+      class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-black"
+    >
+      ✕
+    </button>
+
+    <h3 id="katalogJudul" class="text-2xl font-bold mb-4"></h3>
+    <p id="katalogDeskripsi" class="text-slate-600 text-sm"></p>
+  </div>
+</div>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#fcfdfd] text-slate-900 antialiased overflow-x-hidden">
+    <div
+      class="blob-bg absolute top-0 left-0 w-full h-full -z-20 overflow-hidden pointer-events-none"
+    >
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 transition-all duration-500 px-4 py-6 md:px-10"
+    >
+      <div
+        class="max-w-7xl mx-auto flex justify-between items-center glass-nav rounded-[2rem] px-8 py-4 border border-white/40 shadow-2xl shadow-emerald-900/5"
+      >
+        <div class="flex items-center gap-3 group cursor-pointer">
+          <div
+            class="logo-box w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center text-white font-bold transition-transform group-hover:rotate-12"
+          >
+            KN
+          </div>
+          <span
+            class="text-xl font-black tracking-tighter uppercase group-hover:text-emerald-600 transition-colors"
+            >Kalingiwo</span
+          >
+        </div>
+
+        <div
+          class="hidden lg:flex items-center gap-8 font-bold text-[11px] tracking-[0.2em] text-slate-500"
+        >
+          <a href="#home" class="nav-link relative overflow-hidden">BERANDA</a>
+          <a href="#tentang" class="nav-link relative overflow-hidden"
+            >TENTANG</a
+          >
+          <a href="#dokumentasi" class="nav-link relative overflow-hidden"
+            >DOKUMENTASI</a
+          >
+          <a href="#kegiatan" class="nav-link relative overflow-hidden"
+            >KEGIATAN</a
+          >
+          <a href="#umkm" class="nav-link relative overflow-hidden">UMKM</a>
+          <a href="#demografi" class="nav-link relative overflow-hidden"
+            >DEMOGRAFI</a
+          >
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="#kontak"
+            class="hidden sm:block bg-slate-900 text-white px-7 py-3 rounded-full font-bold text-xs hover:bg-emerald-600 transition-all shadow-lg shadow-slate-900/10"
+          >
+            KONTAK
+          </a>
+          <button
+            id="menu-btn"
+            class="lg:hidden p-2 hover:bg-slate-100 rounded-xl transition-colors text-slate-900"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden mt-4 bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/50 p-8 flex flex-col gap-6 font-bold text-xs tracking-[0.2em] text-slate-600"
+      >
+        <a href="#home" class="mobile-nav-link">BERANDA</a>
+        <a href="#tentang" class="mobile-nav-link">TENTANG</a>
+        <a href="#dokumentasi" class="mobile-nav-link">DOKUMENTASI</a>
+        <a href="#kegiatan" class="mobile-nav-link">KEGIATAN</a>
+        <a href="#umkm" class="mobile-nav-link">UMKM</a>
+        <a href="#demografi" class="mobile-nav-link">DEMOGRAFI</a>
+        <a
+          href="#kontak"
+          class="text-emerald-600 pt-2 border-t border-slate-100"
+          >KONTAK KAMI</a
+        >
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center px-6 pt-24 lg:pt-0"
+    >
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1200"
+          class="text-center lg:text-left"
+        >
+          <div
+            class="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-emerald-100 px-5 py-2 rounded-full mb-8 shadow-sm"
+          >
+            <span
+              class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"
+            ></span>
+            <span
+              class="text-emerald-700 text-[10px] font-black uppercase tracking-[0.3em]"
+              >Digitalisasi KKN KEL.47 UPY 2026</span
+            >
+          </div>
+          <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-black leading-[1] mb-8 tracking-tight text-slate-900"
+          >
+            website <br />
+            <span class="gradient-text">digitalisasi Kalingiwo</span>
+          </h1>
+          <p
+            class="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed mx-auto lg:mx-0"
+          >
+            Website tentang info info dari apa yang ada di padukuhan Kalingiwo
+          </p>
+          <div
+            class="flex flex-wrap justify-center lg:justify-start gap-5 font-bold"
+          >
+            <a href="#umkm" class="btn-primary">Lapak Warga</a>
+            <a href="#tentang" class="btn-secondary">Profil Desa</a>
+          </div>
+        </div>
+        <div
+          class="relative order-first lg:order-last"
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+        >
+          <div
+  class="hero-img-container p-4 bg-white/50 backdrop-blur-xl rounded-[3.5rem] shadow-2xl border border-white/50 rotate-0 lg:rotate-3"
+>
+  <div class="w-full aspect-square rounded-[2.5rem] overflow-hidden">
+    <iframe
+      src="//www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1976.7310054511117!2d110.168775!3d-7.740719!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af10182e3f6d7%3A0x87cb561da31152c7!2sPAUD%20ANNISA!5e0!3m2!1sid!2sid!4v1769344391920!5m2!1sid!2sid"
+       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     
+  </iframe>
+  </div>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang" class="py-24 bg-white px-6">
+      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <h2
+          class="text-4xl md:text-6xl font-black mb-10 text-slate-900 tracking-tighter"
+        >
+          Tentang Kalingiwo
+        </h2>
+        <p
+          class="text-lg md:text-xl text-slate-700 leading-relaxed font-bold"
+        >
+          Dusun Kalingiwo terletak di wilayah perbukitan Pegunungan Menoreh di bagian wilayah Kalurahan Pendoworejo, sehingga kondisi geografisnya cenderung berbukit dengan akses jalannya yang terkadang menantang. Wilayah seperti ini sering mempengaruhi pola hidup masyarakat setempat yang lebih banyak bertani dan bergantung pada sumber daya alam, meskipun detail aktivitas spesifik di Kalingiwo sendiri tidak selalu dipublikasikan online. 
+        </p>
+      </div>
+    </section>
+
+    <section id="dokumentasi" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl font-black mb-12 uppercase tracking-[0.2em] text-purple-600"
+          data-aos="fade-right"
+        >
+          Dokumentasi
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="img-card group" data-aos="fade-up">
+            <img src="Proker.jpeg" class="img-zoom" />
+          </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Baner.jpeg" class="img-zoom" />
+          </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Madyang.jpeg" class="img-zoom" />
+          </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Senam.jpeg" class="img-zoom" />
+        </div>
+            <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Paud.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="AD ART.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="selfie.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Karangtaruna.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="ngaji.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="depan paud.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="mewarnai.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Mudamudi.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Plang.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="umkm.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="sawah2.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="sawahbudukuh.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="sawahbudukuh1.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Ayunan.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="WARNA CAT.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="mlinjo.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="A.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="KENCUR.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="KWT.jpeg" class="img-zoom" />
+            </div>
+          <div class="img-card group" data-aos="fade-up" data-aos-delay="200">
+            <img src="Bareng.jpeg" class="img-zoom" />
+            </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kegiatan" class="py-24 bg-slate-900 text-white px-6">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-4xl font-black mb-16 text-center lg:text-left"
+          data-aos="fade-right"
+        >
+          Kegiatan Warga
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <div
+            class="p-10 border border-white/10 rounded-[2.5rem] hover:bg-white/5 transition duration-500"
+            data-aos="fade-up"
+          >
+            <div
+              class="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-500/20"
+            >
+              <i data-lucide="users-2"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 italic">
+              Srawung & Gotong Royong
+            </h4>
+            <p class="text-slate-400 leading-relaxed text-justify">
+              Menjaga solidaritas antar warga melalui pertemuan rutin dan kerja
+              bakti dalam merawat sarana publik padukuhan.
+            </p>
+          </div>
+          <div
+            class="p-10 border border-white/10 rounded-[2.5rem] hover:bg-white/5 transition duration-500"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-amber-500/20"
+            >
+              <i data-lucide="sprout"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 italic">Ketahanan Lokal</h4>
+            <p class="text-slate-400 leading-relaxed text-justify">
+              Aktivitas produktif harian dalam sektor pertanian, peternakan, dan
+              pengelolaan sumber daya alam Menoreh.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <section id="umkm" class="py-28 px-6 bg-slate-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
+        <!-- Keterangan -->
+        <div data-aos="fade-right">
+          <i
+            data-lucide="shopping-cart"
+            class="w-12 h-12 text-emerald-600 mb-6"
+          ></i>
+
+          <h2
+            class="text-4xl md:text-5xl font-black mb-6 tracking-tighter uppercase italic"
+          >
+            UMKM Padukuhan Kalingiwo
+          </h2>
+
+          <p class="text-lg text-slate-500 mb-10 leading-relaxed">
+            Mendukung UMKM, Membeli produk tetangga adalah langkah nyata memutar
+            roda ekonomi Padukuhan.
+          </p>
+        </div>
+
+        <!-- Grid Produk -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6"
+        >
+          <!-- Produk -->
+          <div
+            class="relative h-60 rounded-3xl overflow-hidden group shadow-lg"
+          >
+            <img
+              src="risol.jpg"
+              class="img-zoom w-full h-full object-cover"
+            />
+
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-xl"> Risol </span>
+            </div>
+          </div>
+
+          <div
+            class="relative h-60 rounded-3xl overflow-hidden group shadow-lg"
+          >
+            <img
+              src="jajanan pasar.jpg"
+              class="img-zoom w-full h-full object-cover"
+            />
+
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center"
+            >
+              <span class="text-white font-bold text-xl"> Jajanan Pasar </span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demografi" class="py-24 bg-white px-6">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2
+          class="text-3xl font-black mb-20 uppercase tracking-[0.3em] text-purple-600"
+        >
+          Demografi
+        </h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+          <div data-aos="zoom-in">
+            <div
+              class="text-6xl font-black text-slate-900 mb-4 tracking-tighter"
+              id="count-warga"
+            >
+              172+
+            </div>
+            <p
+              class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest"
+            >
+              Total Warga
+            </p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="text-6xl font-black text-slate-900 mb-4 tracking-tighter"
+              id="count-kk"
+            >
+              55
+            </div>
+            <p
+              class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest"
+            >
+              Kepala Keluarga
+            </p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="200">
+            <div
+              class="text-6xl font-black text-slate-900 mb-4 tracking-tighter"
+              id="count-rt"
+            >
+              4
+            </div>
+            <p
+              class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest"
+            >
+              Ketua RT
+            </p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="200">
+            <div
+              class="text-6xl font-black text-slate-900 mb-4 tracking-tighter"
+              id="count-rt"
+            >
+              2
+            </div>
+            <p
+              class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest"
+            >
+              Ketua RW
+            </p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="300">
+            <div
+              class="text-6xl font-black text-slate-900 mb-4 tracking-tighter"
+              id="count-umkm"
+            >
+              2
+            </div>
+            <p
+              class="text-emerald-600 font-extrabold text-xs uppercase tracking-widest"
+            >
+              Lapak Aktif
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      id="kontak"
+      class="bg-slate-900 text-white py-24 px-6 relative overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 relative z-10">
+        <div>
+          <h4
+            class="text-2xl font-black mb-8 italic text-purple-600 uppercase"
+          >
+            Kalingiwo
+          </h4>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            Padukuhan Kalingiwo, Kalurahan Pendoworejo, Kapanewon Girimulyo,
+            Kabupaten Kulon Progo, DIY.
+          </p>
+          <div class="flex gap-4">
+            <div
+              class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+            >
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </div>
+            <div
+              class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+            >
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5
+            class="font-bold mb-8 uppercase text-xs tracking-[0.3em] text-purple-600"
+          >
+            Navigasi 
+          </h5>
+          <div
+            class="grid grid-cols-2 gap-4 text-purple-600 text-sm font-semibold italic"
+          >
+            <a href="#home" class="hover:text-white transition">Home</a>
+            <a href="#tentang" class="hover:text-white transition">Tentang</a>
+            <a href="#dokumentasi" class="hover:text-white transition"
+              >Dokumentasi</a
+            >
+            <a href="#kegiatan" class="hover:text-white transition">Kegiatan</a>
+          </div>
+        </div>
+        <div>
+          <h5
+            class="font-bold mb-8 uppercase text-xs tracking-[0.3em] text-purple-600"
+          >
+            Kontak Warga
+          </h5>
+          <p class="text-slate-400 text-sm mb-4">
+            Hubungi kami untuk kolaborasi, kunjungan KKN, atau pemesanan produk
+            UMKM.
+          </p>
+          <a
+            href="#"
+            class="text-lg font-black text-white hover:text-emerald-400 transition underline"
+            >Kalingiwo.@gmail.com</a
+          >
+        </div>
+      </div>
+      <div class="text-center mt-20 pt-10 border-t border-white/5">
+        <p
+          class="text-slate-600 text-[10px] font-black tracking-[0.4em] uppercase"
+        >
+          KKN KEL.47 Universitas PGRI Yogyakarta © 2026
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
