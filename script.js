@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     (entries) => {
       if (entries[0].isIntersecting) {
         animateCount("count-warga", 172);
-        animateCount("count-kk", 55);
+        animateCount("count-kk", 67);
         animateCount("count-rt", 4);
         animateCount("count-rw", 2);
         animateCount("count-umkm", 2);
@@ -109,3 +109,4 @@ function closeKatalog() {
   modal.classList.add("hidden");
   modal.classList.remove("flex");
 }
+
